@@ -4,7 +4,10 @@ import re
 import os
 import tempfile
 
+st.set_page_config(page_title="Shutterstock Extractor", page_icon="📸")
+
 st.title("📸 Извлечение номеров Shutterstock")
+st.caption("Загрузите ZIP с превью — получите список ID")
 
 uploaded_file = st.file_uploader("Загрузи ZIP с изображениями", type="zip")
 
