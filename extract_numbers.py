@@ -21,16 +21,17 @@ def extract_shutterstock_numbers(folder_path):
 
 
 if uploaded_file is not None:
-    with tempfile.TemporaryDirectory() as tmpdir:
-        zip_path = os.path.join(tmpdir, "files.zip")
+    with st.spinner("Секунду, вытаскиваю номера..."):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            zip_path = os.path.join(tmpdir, "files.zip")
 
-        with open(zip_path, "wb") as f:
-            f.write(uploaded_file.read())
+            with open(zip_path, "wb") as f:
+                f.write(uploaded_file.read())
 
-        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-            zip_ref.extractall(tmpdir)
+            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                zip_ref.extractall(tmpdir)
 
-        numbers = extract_shutterstock_numbers(tmpdir)
+            numbers = extract_shutterstock_numbers(tmpdir)
 
         st.success(f"Готово! Найдено {len(numbers)} номеров ✨")
 
