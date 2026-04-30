@@ -6,10 +6,41 @@ import tempfile
 
 st.set_page_config(page_title="Shutterstock Extractor", page_icon="📸")
 
-st.title("📸 Извлечение номеров Shutterstock")
-st.caption("Загрузите ZIP с превью — получите список ID")
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(135deg, #111827 0%, #1f2937 45%, #312e81 100%);
+    color: #f9fafb;
+}
 
-uploaded_file = st.file_uploader("Загрузи ZIP с изображениями", type="zip")
+h1, h2, h3 {
+    color: #f9fafb;
+}
+
+[data-testid="stFileUploader"] {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    padding: 18px;
+}
+
+.stTextArea textarea {
+    background-color: #111827;
+    color: #f9fafb;
+    border-radius: 12px;
+}
+
+.stDownloadButton button {
+    border-radius: 999px;
+    font-weight: 700;
+    padding: 0.6rem 1.2rem;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.title("📸 Извлечение номеров Shutterstock")
+
+uploaded_file = st.file_uploader("Загрузи ZIP с изображениями — получите список ID", type="zip")
 
 def extract_shutterstock_numbers(folder_path):
     numbers = []
