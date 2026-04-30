@@ -82,7 +82,7 @@ st.markdown("""
 .footer {
     position: fixed;
     bottom: 10px;
-    right: 20px;
+    left: 20px;
     font-size: 12px;
     color: rgba(255, 255, 255, 0.35);
 }
