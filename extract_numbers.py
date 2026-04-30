@@ -76,3 +76,19 @@ if uploaded_file is not None:
             data=result,
             file_name="shutterstock_numbers.txt"
         )
+
+st.markdown("""
+<style>
+.footer {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+}
+</style>
+
+<div class="footer">
+Сделала Белоусова Дарья · Редакция Кладезь
+</div>
+""", unsafe_allow_html=True)
