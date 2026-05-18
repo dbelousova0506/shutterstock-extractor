@@ -86,4 +86,9 @@ if uploaded_file is not None:
     except Exception as e:
         st.error(f"Что-то пошло не так: {e}")
 
-st.caption("Сделала Белоусова Дарья · Редакция Кладезь")
+st.markdown(
+    "<div style='font-size:12px; color:gray; margin-top:40px;'>"
+    "Белоусова Дарья · Редакция Кладезь"
+    "</div>",
+    unsafe_allow_html=True
+)
