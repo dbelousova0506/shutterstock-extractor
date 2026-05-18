@@ -87,7 +87,7 @@ if uploaded_file is not None:
         st.error(f"Что-то пошло не так: {e}")
 
 st.markdown(
-    "<div style='font-size:11px; color:#999; margin-top:100px;'>"
+    "<div style='font-size:11px; color:#999; margin-top:10px;'>"
     "D. Belousova"
     "</div>",
     unsafe_allow_html=True
