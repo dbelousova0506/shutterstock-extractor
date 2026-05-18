@@ -39,10 +39,25 @@ def safe_extract_zip(zip_ref, extract_to):
 def extract_shutterstock_numbers(folder_path):
     numbers = set()
 
+    all_files = []
+
     for root, dirs, files in os.walk(folder_path):
         for filename in files:
-            matches = re.findall(r"\d{6,}", filename)
-            numbers.update(matches)
+            all_files.append(filename)
+
+    progress_bar = st.progress(0)
+    status_text = st.empty()
+
+    for i, filename in enumerate(all_files):
+        matches = re.findall(r"\d{6,}", filename)
+        numbers.update(matches)
+
+        percent = int((i + 1) / len(all_files) * 100)
+
+        progress_bar.progress(percent)
+        status_text.text(
+            f"Обработка: {percent}% — {i + 1} из {len(all_files)} файлов"
+        )
 
     return sorted(numbers, key=int)
 
